@@ -96,18 +96,11 @@ Features:
 - **Report Generation**: Comprehensive incident reports
 - **Download Reports**: Export reports in Markdown format
 
-### Educational Mentoring System
 
 #### Command Line Interface
 ```bash
 # Run the complete mentoring flow
 crewai run
-
-# Generate study plans only
-python src/mentormindflows/crews/main_crew/studyplanner_crew.py
-
-# Peer comparison analysis
-python src/mentormindflows/crews/main_crew/peercomparision_crew.py
 ```
 
 ## 📁 Project Structure
@@ -121,12 +114,11 @@ mentormindflows/
 ├── src/mentormindflows/
 │   ├── main.py                     # Core flow orchestration
 │   ├── crews/                      # AI agent crews
-│   │   ├── main_crew/              # Emergency & educational crews
+│   │   ├── main_crew/              # Emergency crews
 │   │   │   ├── fire_crew.py        # Fire incident response
 │   │   │   ├── medical_crew.py     # Medical emergency handling
 │   │   │   ├── police_crew.py      # Police incident management
 │   │   │   ├── accident_crew.py    # Accident response
-│   │   │   ├── studyplanner_crew.py # Agent and task configurations
 │   │   └── gmailcrew/              # Email communication crew
 │   ├── tools/                      # Custom tools and utilities
 │   │   ├── csv_logger_tool.py      # Incident logging
@@ -150,7 +142,6 @@ The system supports multiple AI models:
 ### Customization Options
 - **Modify Agent Behavior**: Edit YAML configuration files
 - **Add New Incident Types**: Create new crew classes and configurations
-- **Extend Educational Features**: Add new analysis tools and report types
 - **Custom Tools**: Implement additional CrewAI tools in the `tools/` directory
 
 ## 📊 Output Formats
@@ -169,14 +160,6 @@ The system supports multiple AI models:
 3. Implement custom tools if needed
 4. Register the crew in the main flow orchestration
 
-### Testing
-```bash
-# Run specific crew tests
-python -m pytest tests/
-
-# Test individual components
-python src/mentormindflows/tools/custom_tool.py
-```
 
 ## 📋 Requirements
 
@@ -197,8 +180,7 @@ python src/mentormindflows/tools/custom_tool.py
 - **API Keys**: Store securely in environment variables, never commit to version control
 - **Gmail Credentials**: Use OAuth 2.0 flow, regularly rotate credentials  
 - **Input Validation**: All user inputs are validated before processing
-- **Data Privacy**: Student data and incident reports are handled according to privacy best practices
-
+  
 
 ## Acknowledgments
 

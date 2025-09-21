@@ -126,9 +126,7 @@ mentormindflows/
 │   │   │   ├── medical_crew.py     # Medical emergency handling
 │   │   │   ├── police_crew.py      # Police incident management
 │   │   │   ├── accident_crew.py    # Accident response
-│   │   │   ├── studyplanner_crew.py # Study planning
-│   │   │   ├── peercomparision_crew.py # Peer analysis
-│   │   │   └── config/             # Agent and task configurations
+│   │   │   ├── studyplanner_crew.py # Agent and task configurations
 │   │   └── gmailcrew/              # Email communication crew
 │   ├── tools/                      # Custom tools and utilities
 │   │   ├── csv_logger_tool.py      # Incident logging
@@ -161,13 +159,7 @@ The system supports multiple AI models:
 - **Incident Reports**: Comprehensive Markdown reports with incident details
 - **CSV Logs**: Structured data for analysis and record-keeping
 - **Email Notifications**: HTML-formatted alerts to authorities
-- **Mind Maps**: Visual representation of incident response workflows
 
-### Educational System
-- **Study Plans**: Weekly schedules with time-blocking and Pomodoro techniques
-- **Career Guides**: Detailed roadmaps with short, mid, and long-term goals
-- **Peer Comparisons**: Benchmarking reports with improvement strategies
-- **Combined Reports**: Integrated analyses combining all mentoring aspects
 
 ## 🔧 Development
 

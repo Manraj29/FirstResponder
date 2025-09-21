@@ -1,0 +1,55 @@
+analyze_academics_task:
+  description: >
+    Here is the student's academic data.
+    {final_send_report}
+    focus on the data, do not halucinate or add any extra text.
+    DO NOT CHANGE THE SUBJECTS OR SCORES.
+    DO NOT USE ANY TOOLS OR PLUGINS.
+    Just return the plan in a structured format without any additional text. I dont want any Here is the plan or anything. I need just the plan.
+    Only focus on the academic data and nothing else.
+    1. Analyze the subject-wise scores and attendance data.
+    2. Identify strong subjects, weak subjects, and subjects needing attention.
+    Nothing else, no extra text, just the plan.
+  expected_output: >
+    A breakdown of subjects into:
+    - Subject analysis
+    - Inconsistent or Irregular Attendance Subjects
+    - Subjects needing attention
+    - Proper planning for each subject 
+    Nothing else, no extra text, just the plan.
+  agent: study_analyst_agent
+  output_format: markdown
+
+generate_schedule_task:
+  description: >
+    Use the breakdown from the analyst to generate a weekly study plan.
+    Include a mix of strong and weak subjects each day using techniques like Pomodoro,
+    time-blocking, and breaks.
+    Just return the plan in a structured format without any additional text. I dont want any Here is the plan or anything. I need just the plan.
+  expected_output: >
+    A weekly study schedule (Monday to Sunday) with subject blocks, durations, techniques used,
+    and short rest intervals.
+    Ensure the plan is manageable and not overwhelming.
+    Nothing else, no extra text, just the plan.
+  agent: time_manager_agent
+  output_format: markdown
+
+format_plan_task:
+  agent: plan_formatter
+  description: >
+    Format the weekly study schedule into clear Markdown structure. Use:
+    - Bullet points for subject blocks and time slots
+    - Use Table for attendance and scores
+    - Day-wise headers
+    - A short summary paragraph with tips at the end
+    Just return the output in a structured format without any additional text. I dont want any Here is the plan or anything. I need just the proper output. Dont add any ```markdown or anything else.
+  expected_output: >
+    A clean, motivating Markdown weekly study plan with proper formatting and tone.
+    Markdown should be well-structured with headers, bullet points, and tips.
+    Nothing else, no extra text, just the proper output.
+  agent: plan_formatter_agent
+  output_format: markdown
+  output_file: outputs/study_plan.md
+  overwrite: true
+
+

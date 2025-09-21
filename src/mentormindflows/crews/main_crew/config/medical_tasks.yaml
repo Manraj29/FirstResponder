@@ -1,0 +1,27 @@
+guidance_collect_info:
+  agent: guidance_agent
+  description: >
+    Using ONLY the provided incident context (username, location, incident_category, severity, issue_msg),
+    generate 5-6 concise and actionable fire safety guidance tips tailored to the severity. DO NOT ask the user any
+    questions and DO NOT tell the user to call emergency numbers. Act as an emergency service confirming that
+    authorities are being contacted by the system. Return the guidance tips.
+  expected_output: >
+    JSON object with keys: guidance_tips (array of strings)
+ 
+notify_authority:
+  agent: notify_authority_agent
+  description: >
+    Using provided incident context (username, location, incident_category, severity, issue_msg), identify appropriate
+    authority (e.g., local Medical department). Draft the alert message and return the draft details. If an email tool is
+    unavailable, DO NOT fail; simply return the draft fields and a status="drafted".
+  expected_output: >
+    JSON with keys: email_recipient, email_subject, email_status, summary
+
+log_incident:
+  agent: data_logger_agent
+  description: >
+    Log (username, location, incident_category, severity, issue_msg) to CSV via CSVLoggerTool. The tool will generate id & timestamp.
+    Return the incident id and file path.
+  expected_output: >
+    JSON with keys: incident_id, csv_path
+  output_file: csv_data.csv

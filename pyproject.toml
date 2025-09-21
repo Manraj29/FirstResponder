@@ -1,0 +1,30 @@
+[project]
+name = "mentormindflows"
+version = "0.1.0"
+description = "MentorMindFlows using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "crewai[tools]>=0.114.0,<1.0.0",
+    "google-api-python-client>=2.137.0",
+    "google-auth-oauthlib>=1.2.0",
+    "markdown>=3.5",
+    "streamlit>=1.36",
+    "streamlit-markmap>=0.1.7",
+    "streamlit-js-eval>=0.1.7",
+    "python-dotenv>=1.0.1",
+    "google-generativeai>=0.7.0",
+    "weasyprint>=62.3",
+]
+
+[project.scripts]
+kickoff = "mentormindflows.main:kickoff"
+run_crew = "mentormindflows.main:kickoff"
+plot = "mentormindflows.main:plot"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "flow"

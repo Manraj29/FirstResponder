@@ -1,0 +1,8 @@
+.env
+__pycache__/
+lib/
+.DS_Store
+.secrets/
+src/mentormindflows/crews/gmailcrew/tools/token.json
+mentormindflows/src/mentormindflows/crews/gmailcrew/tools/token.json
+mentormindflows copy 2/src/mentormindflows/crews/gmailcrew/tools/token.json

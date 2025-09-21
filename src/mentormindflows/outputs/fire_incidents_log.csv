@@ -1,0 +1,4 @@
+id,username,location,category_incident,time,severity,issue_msg
+,test_user,test_location,fire,,high,small fire in lab
+,Unknown,Unknown,Fire Incident,Unknown,Critical,Fire Reported
+,David,Room 204,Fire,2024-07-24 14:30:00 UTC,Critical,Small fire started near the electrical outlet

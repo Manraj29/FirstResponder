@@ -1,0 +1,123 @@
+study_planner_task:
+  description: >
+    Based on the student profile below, generate a personalized 7-day study schedule:
+    {final_send_report}
+
+    Prioritize:
+    - Subject-wise performance and attendance insights
+    - Use of time-blocking or Pomodoro techniques
+    - Emphasis on weak subjects, while maintaining strengths
+
+    Format the plan clearly in Markdown and save to `outputs/study_plan.md`.
+    Ensure content is structured with headers, bullet points, and readable layout. 
+    Keep it professional, helpful, and motivational — suitable for printing.
+
+  expected_output: >
+    - 7-day plan (Monday–Sunday) with subject-wise time blocks
+    - Daily total study hours and breaks
+    - Summary tips for motivation and consistency
+
+  agent: study_planner_agent
+  output_format: markdown
+  output_file: outputs/study_plan.md
+  overwrite: true
+  append: false
+
+career_guide_task:
+  description: >
+    Analyze the academic summary:
+    {final_send_report}
+
+    Recommend 2–3 personalized career paths that align with the student’s performance, strengths, and interests.
+
+    For each suggestion, provide:
+    - A career title with justification
+    - Required skills and mindset
+    - Recommended courses or platforms
+    - Bonus tips (e.g. communities, certifications, growth opportunities)
+
+    Format the content in clean Markdown and save it to `outputs/career_guide.md`.
+    Use headers and bullet points for clarity and print-readiness.
+
+
+  expected_output: >
+    - Career path suggestions with detailed explanation
+    - Relevant skills and learning paths
+    - Practical growth resources and communities
+
+  agent: career_guide_agent
+  output_format: markdown
+  output_file: outputs/career_guide.md
+  overwrite: true
+  append: false
+
+
+peer_comparison_task:
+  description: >
+    Compare the following student data:
+    {final_send_report}
+
+    Against this peer dataset:
+    {csv_data}
+
+    Perform a peer benchmark on:
+    - Subject-wise scores
+    - Attendance percentages
+
+    Clearly highlight:
+    - Strengths and outperforming areas
+    - Weaknesses and gaps
+    - Actionable improvement strategies
+
+    Include a **Markdown-friendly mind map**:
+    - Student Performance
+      - Strengths
+      - Weaknesses
+      - Suggestions
+
+    Structure output with headers and bullet points.
+    Save to `outputs/peer_comparison.md`.
+
+  expected_output: >
+    - Clean comparison with metrics
+    - 2–3 practical improvement steps
+    - Simple indented Markdown mind map (no diagrams)
+
+  agent: peer_comparison_agent
+  output_format: markdown
+  output_file: outputs/peer_comparison.md
+  overwrite: true
+  append: false
+
+report_generator_task:
+  description: >
+    Combine the following pre-generated files:
+    - outputs/study_plan.md
+    - outputs/career_guide.md
+    - outputs/peer_comparison.md
+
+    Create a polished and print-ready Markdown report for the student using this data:
+    {study_plan}
+    {career_guide}
+    {peer_comparison}
+
+    Structure the final report as:
+    - **Title**: MentorMind Student Report
+    - **Sections**:  Introduction, Topic for report, Graphical Mindmap, Insights, etc..
+    - **Conclusion**: Encouraging summary and next steps
+
+    The final report must be well-structured using Markdown (headings, bullet points), free of code fences (```) or unnecessary markup.
+
+    Save the report to `outputs/report.md`.
+
+  expected_output: >
+    - Title: MentorMind Student Report
+    - Well-separated, clean Markdown sections
+    - Clear flow and encouraging closing message
+
+  agent: report_generator_agent
+  output_format: markdown
+  output_file: outputs/report.md
+  overwrite: true
+  append: false
+

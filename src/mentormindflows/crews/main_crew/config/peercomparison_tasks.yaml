@@ -1,0 +1,74 @@
+compare_with_peers_task:
+  agent: data_comparing_agent
+  description: >
+    Here is the student data and a dataset of peer students:
+    {final_send_report}
+    {csv_data}
+    Analyze the student's academic performance against peers.
+    
+    Compare the target student with peers based on:
+    - Subject-wise average vs peer average
+    - Overall score percentile
+    - Attendance comparison
+    - Consistency across terms or tests
+
+    Present the output clearly in a markdown table or bullet format for each metric.
+    It should be very detailed and easy to understand.
+  expected_output: >
+    A markdown output comparing:
+    - Subject-wise score vs peer average
+    - Overall percentile
+    - Attendance vs average
+    - Performance consistency score or level
+  output_format: markdown
+
+generate_peer_insights_task:
+  agent: insight_generator_agent
+  description: >
+    Here is the student data and a dataset of peer students:
+    {final_send_report}
+    {csv_data}
+    Based on the peer comparison data, generate the following:
+    - 2 key strengths the student holds over peers
+    - 2 improvement areas with advice
+    - A short motivational paragraph
+
+    Keep the tone positive, constructive, and student-focused. Be empathetic.
+    Perform very detailed analysis and provide insights that are easy to understand.
+  expected_output: >
+    Markdown format with sections:
+    ## Strengths  
+    - point 1  
+    - point 2  
+    ## Improvement Areas  
+    - point 1  
+    - point 2  
+    ## Encouragement  
+    Short motivational note
+  output_format: markdown
+
+visualize_peer_mindmap_task:
+  agent: mindmap_visualizer_agent
+  description: >
+    Here is the student data and a dataset of peer students:
+    {final_send_report}
+    {csv_data}
+    Use the insights from the previous task to a proper detailed long report in markdown.
+    Convert the insights from the previous task into a markdown-style mindmap.
+    Use indentation for structure:
+    - Strengths
+      - Subject A
+      - Skill area B
+    - Improvement Areas
+      - Weak Subject X
+      - Focus Needed on Topic Y
+    - Encouragement
+      - Positive Note
+    Note: above is just an example. Use the actual insights from the previous task.
+    Ensure the mindmap is clear and easy to read. Use bullet points and indentation for hierarchy.
+    Keep it visually clear and useful for reviewing at a glance. Dont add any ```markdown or anything else.
+  expected_output: >
+    A markdown-formatted visual mindmap for peer comparison insights.
+  output_format: markdown
+  output_file: outputs/peer_comparison.md
+  overwrite: true
